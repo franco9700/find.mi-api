@@ -16,7 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'firstname', 
+        'lastname', 
+        'birthdate',
+        'phone',
+        'address',   
+        'email', 
+        'password', 
     ];
 
     /**
@@ -36,4 +42,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Sets the crypted password attribute.
+     *
+     * @param      <string>  $password  The password
+     */
+    public function setPasswordAttribute($password)
+    {
+        if ( !empty($password) ) {
+            $this->attributes['password'] = bcrypt($password);
+        }
+    }
 }
