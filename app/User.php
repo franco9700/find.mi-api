@@ -98,7 +98,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function usersProvider()
     {
-        return $this->belongsTo('App\UsersProvider');
+        return $this->hasOne('App\UsersProvider');
     }
 
     public function providersCommentaries()

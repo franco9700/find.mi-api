@@ -19,8 +19,8 @@ class CreateUsersProvidersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('rfc');
             $table->string('provider_banner')->nullable();
-            $table->double('quotation');
-            $table->string('description');
+            $table->double('quotation')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
