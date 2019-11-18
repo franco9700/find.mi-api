@@ -27,14 +27,19 @@ Route::group([
 
 });
 
-Route::group(['middleware' => 'api'], function() {
+Route::group(['middleware' => 'auth:api'], function() {
     JsonApi::register('default')->routes(function ($api) {
 
     	//Users routes
         $api->resource('users')->relationships(function ($relations) {
-            $relations->hasOne('usersProvider');
-            $relations->hasMany('providersCommentaries');
-            $relations->hasMany('providersServices');
+            $relations->hasOne('users-provider');
+            $relations->hasMany('providers-commentaries');
+            $relations->hasMany('providers-services');
+        });
+
+        //Users providers
+        $api->resource('users-providers')->relationships(function ($relations) {
+            $relations->hasOne('user');
         });
 
 	});

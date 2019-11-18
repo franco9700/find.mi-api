@@ -58,9 +58,9 @@ return [
         'providers-commentaries' => \App\ProvidersCommentary::class,
         'providers-services' => \App\ProvidersService::class,
         'services-catalogues' => \App\ServicesCatalogue::class,
-        'services-subcatalogue' => \App\ServicesSubCatalogue::class,
+        'services-subcatalogues' => \App\ServicesSubCatalogue::class,
         'users' => \App\User::class,
-        'users-provider' => \App\UserProvider::class,
+        'users-providers' => \App\UsersProvider::class,
     ],
 
     /*

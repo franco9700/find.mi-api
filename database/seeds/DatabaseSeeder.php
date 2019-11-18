@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
-use App\UserProvider;
+use App\UsersProvider;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersSeeder::class);
 
-        UserProvider::create([
+        UsersProvider::create([
             'user_id' => 1,
             'rfc' => 'asdajsd31',
             'provider_banner' => null,
