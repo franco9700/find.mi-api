@@ -13,21 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
 
-        /*User::create([
-            'firstname' => 'Ros',
-            'lastname' => 'Sanchez',
-            'birthdate' => '1997-04-11',
-            'gender' => 'f',
-            'address' => 'Calle 23 Avenida H',
-            'phone' => '98765412',
-            'email' => 'admin@admin.com',
-            'password' => 'admin123',
-            'score' => 50.25,
-            'profile_img' => null,
-            'role' => 'admin'
-        ]);*/
+        $this->call(UsersSeeder::class);
 
         UserProvider::create([
             'user_id' => 1,
