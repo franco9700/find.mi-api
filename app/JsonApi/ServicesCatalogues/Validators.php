@@ -41,7 +41,8 @@ class Validators extends AbstractValidators
     protected function rules($record = null): array
     {
         return [
-            //
+            'title' => 'required|string',
+            'img' => 'string|nullable',
         ];
     }
 

@@ -16,7 +16,7 @@ class CreateServicesCataloguesTable extends Migration
         Schema::create('services_catalogues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }
