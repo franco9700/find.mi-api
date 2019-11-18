@@ -21,6 +21,7 @@ class User extends Authenticatable implements JWTSubject
         'firstname', 
         'lastname', 
         'birthdate',
+        'gender',
         'phone',
         'address',   
         'email', 
@@ -93,5 +94,20 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function usersProvider()
+    {
+        return $this->belongsTo('App\UsersProvider');
+    }
+
+    public function providersCommentaries()
+    {
+        return $this->hasMany('App\ProvidersCommentary');
+    }
+
+    public function providersServices()
+    {
+        return $this->hasMany('App\ProvidersService');
     }
 }

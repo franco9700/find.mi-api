@@ -18,8 +18,8 @@ class CreateUsersProvidersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('rfc');
-            $table->string('provider_banner');
-            $table->string('quotation');
+            $table->string('provider_banner')->nullable();
+            $table->double('quotation');
             $table->string('description');
             $table->timestamps();
         });

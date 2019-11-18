@@ -26,3 +26,16 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+Route::group(['middleware' => 'api'], function() {
+    JsonApi::register('default')->routes(function ($api) {
+
+    	//Users routes
+        $api->resource('users')->relationships(function ($relations) {
+            $relations->hasOne('usersProvider');
+            $relations->hasMany('providersCommentaries');
+            $relations->hasMany('providersServices');
+        });
+
+	});
+});
