@@ -19,10 +19,17 @@ class User extends Authenticatable
         'firstname', 
         'lastname', 
         'birthdate',
+        'gender',
         'phone',
         'address',   
         'email', 
         'password', 
+    ];
+
+    protected $attributes = [
+        'score' => 0, 
+        'profile_img' => null, 
+        'role' => 'cliente',
     ];
 
     /**
@@ -53,5 +60,20 @@ class User extends Authenticatable
         if ( !empty($password) ) {
             $this->attributes['password'] = bcrypt($password);
         }
+    }
+
+    public function usersProvider()
+    {
+        return $this->belongsTo('App\UsersProvider');
+    }
+
+    public function providersCommentaries()
+    {
+        return $this->hasMany('App\ProvidersCommentary');
+    }
+
+    public function providersServices()
+    {
+        return $this->hasMany('App\ProvidersService');
     }
 }

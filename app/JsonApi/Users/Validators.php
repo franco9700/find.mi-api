@@ -41,7 +41,17 @@ class Validators extends AbstractValidators
     protected function rules($record = null): array
     {
         return [
-            //
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'birthdate' => 'required|date',
+            'gender' => 'required|string|max:4',
+            'address' => 'required|string',
+            'phone' => 'required|string|max:10',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8',
+            'score' => 'required|numeric',
+            'profile_img' => 'string|nullable',
+            'role' => 'string|nullable',
         ];
     }
 
