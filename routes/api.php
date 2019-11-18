@@ -37,9 +37,14 @@ Route::group(['middleware' => 'auth:api'], function() {
             $relations->hasMany('providers-services');
         });
 
-        //Users providers
+        //Users providers routes
         $api->resource('users-providers')->relationships(function ($relations) {
             $relations->hasOne('user');
+        });
+
+        //Services catalogues routes
+        $api->resource('services-catalogues')->relationships(function ($relations) {
+            $relations->hasMany('services-subcatalogues');
         });
 
 	});

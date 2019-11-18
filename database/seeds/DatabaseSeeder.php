@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\UsersProvider;
+use App\ServicesCatalogue;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,6 +23,18 @@ class DatabaseSeeder extends Seeder
             'provider_banner' => null,
             'quotation' => 125.25,
             'description' => '10 years of experience'
+        ]);
+
+        ServicesCatalogue::create([
+            'title' => 'Construcción',
+        ]);
+
+        ServicesCatalogue::create([
+            'title' => 'Plomería',
+        ]);
+
+        ServicesCatalogue::create([
+            'title' => 'Salud',
         ]);
     }
 }

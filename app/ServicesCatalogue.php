@@ -12,7 +12,15 @@ class ServicesCatalogue extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 
-        'img', 
+        'title',  
     ];
+
+    protected $attributes = [
+    	'img' => null,
+    ];
+
+    public function servicesSubCatalogues(){
+
+    	return $this->hasMany('App\ServicesSubCatalogue');
+    }
 }
