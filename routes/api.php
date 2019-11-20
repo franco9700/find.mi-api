@@ -44,7 +44,12 @@ Route::group(['middleware' => 'auth:api'], function() {
 
         //Services catalogues routes
         $api->resource('services-catalogues')->relationships(function ($relations) {
-            $relations->hasMany('services-subcatalogues');
+            $relations->hasMany('services-sub-catalogues');
+        });
+
+        //Services subcatalogues routes
+        $api->resource('services-sub-catalogues')->relationships(function ($relations) {
+            $relations->hasOne('services-catalogue');
         });
 
 	});

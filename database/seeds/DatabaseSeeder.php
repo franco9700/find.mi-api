@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\User;
 use App\UsersProvider;
 use App\ServicesCatalogue;
+use App\ServicesSubCatalogue;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,6 +36,16 @@ class DatabaseSeeder extends Seeder
 
         ServicesCatalogue::create([
             'title' => 'Salud',
+        ]);
+
+        ServicesSubCatalogue::create([
+            'services_catalogue_id' => 1,
+            'title' => 'Alabañileria',
+        ]);
+
+        ServicesSubCatalogue::create([
+            'services_catalogue_id' => 1,
+            'title' => 'Joteria',
         ]);
     }
 }
