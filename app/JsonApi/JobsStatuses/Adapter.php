@@ -44,4 +44,8 @@ class Adapter extends AbstractAdapter
         $this->filterWithScopes($query, $filters);
     }
 
+    public function jobs(){
+         return $this->hasMany();
+    }
+
 }
