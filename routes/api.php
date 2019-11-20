@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth:api'], function() {
             $relations->hasOne('users-provider');
             $relations->hasMany('providers-commentaries');
             $relations->hasMany('providers-services');
+            $relations->hasMany('jobs');
         });
 
         //Users providers routes
@@ -70,6 +71,15 @@ Route::group(['middleware' => 'auth:api'], function() {
         $api->resource('providers-services')->relationships(function ($relations) {
             $relations->hasOne('user');
             $relations->hasOne('services-sub-catalogue');
+            $relations->hasMany('jobs');
+
+        });
+
+        //Jobs routes
+        $api->resource('jobs')->relationships(function ($relations) {
+            $relations->hasOne('jobs-status');
+            $relations->hasOne('providers-service');
+            $relations->hasOne('user');
 
         });
 

@@ -56,4 +56,8 @@ class Adapter extends AbstractAdapter
         return $this->hasMany();
     }
 
+    public function jobs(){
+        return $this->hasMany();
+    }
+
 }

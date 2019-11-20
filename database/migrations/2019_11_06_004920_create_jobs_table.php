@@ -15,10 +15,12 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('job_status_id');
-            $table->foreign('job_status_id')->references('id')->on('jobs_statuses')->onDelete('cascade');
-            $table->unsignedBigInteger('provider_service_id');
-            $table->foreign('provider_service_id')->references('id')->on('providers_services')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('jobs_status_id');
+            $table->foreign('jobs_status_id')->references('id')->on('jobs_statuses')->onDelete('cascade');
+            $table->unsignedBigInteger('providers_service_id');
+            $table->foreign('providers_service_id')->references('id')->on('providers_services')->onDelete('cascade');
             $table->string('short_description');
             $table->string('detailed_description');
             $table->timestamps();
