@@ -41,7 +41,9 @@ class Validators extends AbstractValidators
     protected function rules($record = null): array
     {
         return [
-            //
+            'user_id' => 'required|exists:users,id',
+            'users_provider_id' => 'required|exists:users_providers,id',
+            'content' => 'string|required',
         ];
     }
 

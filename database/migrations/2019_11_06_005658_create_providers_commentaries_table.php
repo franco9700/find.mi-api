@@ -15,6 +15,8 @@ class CreateProvidersCommentariesTable extends Migration
     {
         Schema::create('providers_commentaries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('users_provider_id');
+            $table->foreign('users_provider_id')->references('id')->on('users_providers')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('content');

@@ -24,7 +24,13 @@ class UsersProvider extends Model
         'description' => null,
     ];
 
-    protected function user(){
+    public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function providersCommentaries(){
+        return $this->hasMany('App\ProvidersCommentary');
+    }
+
+
 }

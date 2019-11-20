@@ -6,6 +6,7 @@ use App\UsersProvider;
 use App\ServicesCatalogue;
 use App\ServicesSubCatalogue;
 use App\JobsStatus;
+use App\ProvidersCommentary;
 
 
 class DatabaseSeeder extends Seeder
@@ -57,5 +58,18 @@ class DatabaseSeeder extends Seeder
         JobsStatus::create([
             'title' => 'En procexo',
         ]);
+
+        ProvidersCommentary::create([
+            'users_provider_id' => 1,
+            'user_id' => 2,
+            'content' => 'Excelente servicio, 10/10',
+        ]);
+
+        ProvidersCommentary::create([
+            'users_provider_id' => 1,
+            'user_id' => 3,
+            'content' => 'Pesimo servicio, morra meca',
+        ]);
+    
     }
 }
