@@ -44,4 +44,16 @@ class Adapter extends AbstractAdapter
         $this->filterWithScopes($query, $filters);
     }
 
+    public function providersService(){
+        return $this->hasOne();
+    }
+
+    public function jobsStatus(){
+        return $this->hasOne();
+    }
+
+    public function user(){
+        return $this->hasOne();
+    }
+
 }
