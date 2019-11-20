@@ -48,4 +48,8 @@ class Adapter extends AbstractAdapter
         return $this->hasOne();
     }
 
+    public function providersServices(){
+        return $this->hasMany();
+    }
+
 }
