@@ -5,6 +5,8 @@ use App\User;
 use App\UsersProvider;
 use App\ServicesCatalogue;
 use App\ServicesSubCatalogue;
+use App\JobsStatus;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -46,6 +48,14 @@ class DatabaseSeeder extends Seeder
         ServicesSubCatalogue::create([
             'services_catalogue_id' => 1,
             'title' => 'Joteria',
+        ]);
+
+        JobsStatus::create([
+            'title' => 'Terminado',
+        ]);
+
+        JobsStatus::create([
+            'title' => 'En procexo',
         ]);
     }
 }

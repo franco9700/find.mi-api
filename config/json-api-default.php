@@ -54,7 +54,7 @@ return [
     */
     'resources' => [
         'jobs' => \App\Job::class,
-        'jobs-statuses' => \App\JobStatus::class,
+        'jobs-statuses' => \App\JobsStatus::class,
         'providers-commentaries' => \App\ProvidersCommentary::class,
         'providers-services' => \App\ProvidersService::class,
         'services-catalogues' => \App\ServicesCatalogue::class,

@@ -52,5 +52,10 @@ Route::group(['middleware' => 'auth:api'], function() {
             $relations->hasOne('services-catalogue');
         });
 
+        //Jobs statuses routes
+        $api->resource('jobs-statuses')->relationships(function ($relations) {
+            $relations->hasMany('jobs');
+        });
+
 	});
 });
