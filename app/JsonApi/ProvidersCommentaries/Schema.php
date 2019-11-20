@@ -30,6 +30,9 @@ class Schema extends SchemaProvider
     public function getAttributes($resource)
     {
         return [
+            'user_id' => $resource->user_id,
+            'users_provider_id' => $resource->users_provider_id,
+            'content' => $resource->content,
             'created-at' => $resource->created_at->toAtomString(),
             'updated-at' => $resource->updated_at->toAtomString(),
         ];
