@@ -19,4 +19,8 @@ class ServicesSubCatalogue extends Model
     public function servicesCatalogue(){
     	return $this->belongsTo('App\ServicesCatalogue');
     }
+
+    public function providersServices(){
+        return $this->hasMany('App\ProvidersService');
+    }
 }

@@ -7,6 +7,7 @@ use App\ServicesCatalogue;
 use App\ServicesSubCatalogue;
 use App\JobsStatus;
 use App\ProvidersCommentary;
+use App\ProvidersService;
 
 
 class DatabaseSeeder extends Seeder
@@ -69,6 +70,16 @@ class DatabaseSeeder extends Seeder
             'users_provider_id' => 1,
             'user_id' => 3,
             'content' => 'Pesimo servicio, morra meca',
+        ]);
+
+        ProvidersService::create([
+            'user_id' => 1,
+            'services_sub_catalogue_id' => 1,
+        ]);
+
+        ProvidersService::create([
+            'user_id' => 1,
+            'services_sub_catalogue_id' => 2,
         ]);
     
     }
