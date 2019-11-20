@@ -12,6 +12,11 @@ class ServicesSubCatalogue extends Model
      * @var array
      */
     protected $fillable = [
+    	'sevices_catalogues_id',
         'title', 
     ];
+
+    public function servicesCatalogue(){
+    	return $this->belongsTo('App\ServicesCatalogue');
+    }
 }

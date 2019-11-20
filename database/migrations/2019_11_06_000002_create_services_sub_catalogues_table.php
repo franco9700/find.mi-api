@@ -15,8 +15,8 @@ class CreateServicesSubCataloguesTable extends Migration
     {
         Schema::create('services_sub_catalogues', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('service_catalogue_id');
-            $table->foreign('service_catalogue_id')->references('id')->on('services_catalogues')->onDelete('cascade');
+            $table->unsignedInteger('services_catalogue_id');
+            $table->foreign('services_catalogue_id')->references('id')->on('services_catalogues')->onDelete('cascade');
             $table->string('title');
             $table->timestamps();
         });
