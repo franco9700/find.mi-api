@@ -21,10 +21,13 @@ Route::group([
 ], function ($router) {
 
     Route::post('token', 'AuthController@token');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('register', 'AuthController@register');
 
+    Route::group(['middleware' => 'auth:api'], function ($router){
+        Route::post('logout', 'AuthController@logout');
+        Route::post('refresh', 'AuthController@refresh');
+        Route::post('me', 'AuthController@me');
+    });
 });
 
 Route::group(['middleware' => 'auth:api'], function() {

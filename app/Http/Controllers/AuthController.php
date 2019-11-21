@@ -3,9 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Validator;
 
 class AuthController extends Controller
 {
+    /**
+     * Register a new user
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'birthdate' => 'required|date',
+            'gender' => 'required|string|max:4',
+            'address' => 'required|string',
+            'phone' => 'required|string|max:10',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8',
+            'role' => 'string|nullable'
+        ]);
+
+        if ($validator->fails()) {
+            return response($validator->errors(), 422);
+        }
+
+        $user = User::create([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'birthdate' => $request->birthdate,
+            'gender' => $request->gender,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'password'=> $request->password,
+            'role' => $request->role
+         ]);
+
+        $token = auth()->login($user);
+
+        return response('Registro exitoso', 200);
+    }
+
     /**
      * Get a JWT via given credentials.
      *
