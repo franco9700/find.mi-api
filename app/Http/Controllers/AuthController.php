@@ -58,7 +58,9 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth()->attempt($credentials)) {
+        $user = User::GetUserByEmail($credentials['email'])->first();
+
+        if (! $token = auth()->claims(['role' => $user->role])->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -106,10 +108,13 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
+        $payload = auth()->payload();
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60,
+            'role' => $payload->get('role')
         ]);
     }
 }

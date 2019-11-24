@@ -115,4 +115,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany('App\Job');
     }
+
+    public function scopeGetUserByEmail($query, $email)
+    {
+        return $query->where('email', $email);
+    }
 }

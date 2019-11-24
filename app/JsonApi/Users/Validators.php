@@ -49,7 +49,7 @@ class Validators extends AbstractValidators
             'phone' => 'required|string|max:10',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
-            'score' => 'required|numeric',
+            'score' => 'nullable|numeric',
             'profile_img' => 'string|nullable',
             'role' => 'string|nullable',
         ];
