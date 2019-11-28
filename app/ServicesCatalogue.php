@@ -19,8 +19,8 @@ class ServicesCatalogue extends Model
     	'img' => null,
     ];
 
-    public function servicesSubCatalogues(){
+    public function providersServices(){
 
-    	return $this->hasMany('App\ServicesSubCatalogue');
+    	return $this->hasMany('App\ProvidersService');
     }
 }

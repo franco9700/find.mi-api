@@ -42,7 +42,7 @@ class Validators extends AbstractValidators
     {
         return [
             'user_id' => 'required|exists:users,id',
-            'services_sub_catalogue_id' => 'required|exists:services_sub_catalogues,id',
+            'services_catalogue_id' => 'required|exists:services_catalogues,id',
         ];
     }
 

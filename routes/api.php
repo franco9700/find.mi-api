@@ -49,14 +49,14 @@ Route::group(['middleware' => 'auth:api'], function() {
 
         //Services catalogues routes
         $api->resource('services-catalogues')->relationships(function ($relations) {
-            $relations->hasMany('services-sub-catalogues');
+            $relations->hasMany('providers-services');
         });
 
-        //Services subcatalogues routes
+        /*Services subcatalogues routes
         $api->resource('services-sub-catalogues')->relationships(function ($relations) {
             $relations->hasOne('services-catalogue');
             $relations->hasMany('providers-services');
-        });
+        });*/
 
         //Jobs statuses routes
         $api->resource('jobs-statuses')->relationships(function ($relations) {
@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth:api'], function() {
         //Providers services routes
         $api->resource('providers-services')->relationships(function ($relations) {
             $relations->hasOne('user');
-            $relations->hasOne('services-sub-catalogue');
+            $relations->hasOne('services-catalogue');
             $relations->hasMany('jobs');
 
         });

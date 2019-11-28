@@ -17,8 +17,8 @@ class CreateProvidersServicesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedInteger('services_sub_catalogue_id');
-            $table->foreign('services_sub_catalogue_id')->references('id')->on('services_sub_catalogues')->onDelete('cascade');
+            $table->unsignedInteger('services_catalogue_id');
+            $table->foreign('services_catalogue_id')->references('id')->on('services_catalogues')->onDelete('cascade');
             $table->timestamps();
         });
     }

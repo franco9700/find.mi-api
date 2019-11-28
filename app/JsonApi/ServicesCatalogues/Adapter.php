@@ -44,7 +44,7 @@ class Adapter extends AbstractAdapter
         $this->filterWithScopes($query, $filters);
     }
 
-    public function servicesSubCatalogues(){
+    public function providersServices(){
 
         return $this->hasMany();
     }
