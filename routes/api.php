@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth:api'], function() {
         $api->resource('users-providers')->relationships(function ($relations) {
             $relations->hasOne('user');
             $relations->hasMany('providers-commentaries');
+            $relations->hasMany('jobs');
         });
 
         //Services catalogues routes
