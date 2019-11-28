@@ -45,4 +45,18 @@ class Schema extends SchemaProvider
             'updated-at' => $resource->updated_at->toAtomString(),
         ];
     }
+
+    public function getRelationships($resource, $isPrimary, array $includeRelationships)
+    {
+        return [
+            'users-provider' => [
+                self::SHOW_SELF => false,
+                self::SHOW_RELATED => false,
+                self::SHOW_DATA => isset($includeRelationships['users-provider']),
+                self::DATA => function () use ($resource) {
+                    return $resource->usersProvider;
+                }
+            ]
+        ];
+    }
 }
