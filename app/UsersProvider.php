@@ -32,5 +32,16 @@ class UsersProvider extends Model
         return $this->hasMany('App\ProvidersCommentary');
     }
 
+    public function jobs(){
+        return $this->hasManyThrough(
+            'App\Job',
+            'App\ProvidersService', 
+            'user_id',
+            'providers_service_id',
+            'user_id',
+            'id'
+        );
+    }
+
 
 }

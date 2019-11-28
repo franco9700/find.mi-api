@@ -39,4 +39,27 @@ class Schema extends SchemaProvider
             'updated-at' => $resource->updated_at->toAtomString(),
         ];
     }
+
+    public function getRelationships($resource, $isPrimary, array $includeRelationships)
+    {
+        return [
+            'user' => [
+                self::SHOW_SELF => false,
+                self::SHOW_RELATED => false,
+                self::SHOW_DATA => isset($includeRelationships['user']),
+                self::DATA => function () use ($resource) {
+                    return $resource->user;
+                }
+            ],
+
+            'jobs-status' => [
+                self::SHOW_SELF => false,
+                self::SHOW_RELATED => false,
+                self::SHOW_DATA => isset($includeRelationships['jobs-status']),
+                self::DATA => function () use ($resource) {
+                    return $resource->jobsStatus;
+                }
+            ],
+        ];
+    }
 }

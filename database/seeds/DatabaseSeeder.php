@@ -109,6 +109,14 @@ class DatabaseSeeder extends Seeder
             'short_description' => 'Necesito ayuda con mi madre',
             'detailed_description' => 'No hace lo que quiero y me frustra'
         ]);
+
+        Job::create([
+            'user_id' => 3,
+            'jobs_status_id' => 1,
+            'providers_service_id' => 3,
+            'short_description' => 'Necesito ayuda',
+            'detailed_description' => 'porfa'
+        ]);
     
     }
 }
