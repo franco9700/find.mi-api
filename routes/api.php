@@ -26,7 +26,7 @@ Route::group([
     Route::group(['middleware' => 'auth:api'], function ($router){
         Route::post('logout', 'AuthController@logout');
         Route::post('refresh', 'AuthController@refresh');
-        Route::post('me', 'AuthController@me');
+        Route::get('me', 'AuthController@me');
     });
 });
 
@@ -88,29 +88,37 @@ Route::group(['middleware' => 'auth:api'], function() {
 
 
 	});
+});
 
-    //Media routes
+//Media routes
+Route::group([
+    'prefix'     => 'api/v1/media',
+    'middleware' => 'api'
+], function () {
+
     Route::group([
-        'prefix'     => 'api/v1/media',
-    ], function () {
-            Route::post('upload-profile-image', 'MediaController@uploadProfileImage')->middleware('auth:api');
-            Route::post('upload-provider-banner', 'MediaController@uploadProviderBanner')->middleware('auth:api');
-            Route::post('upload-catalogue-image', 'MediaController@uploadCatalogueImage')->middleware('auth:api');
+        'middleware' => 'auth:api'
 
-            Route::get('get-profile-image/{id}', 'MediaController@getProfileImage');
-            Route::get('get-provider-banner/{id}', 'MediaController@getProviderBanner');
-            Route::get('get-catalogue-image/{id}', 'MediaController@getCatalogueImage');
+    ], function (){
+        Route::post('upload-profile-image', 'MediaController@uploadProfileImage');
+        Route::post('upload-provider-banner', 'MediaController@uploadProviderBanner');
+        Route::post('upload-catalogue-image', 'MediaController@uploadCatalogueImage');
 
-            Route::get('thumb-profile-image/{id}/{size}', 'MediaController@thumbProfileImage');
-            Route::get('thumb-provider-banner/{id}/{size}', 'MediaController@thumbProviderBanner');
-            Route::get('thumb-catalogue-image/{id}/{size}', 'MediaController@thumbCatalogueImage');
-
-            Route::get('crop-profile-image/{id}/{width}x{height}', 'MediaController@cropProfileImage');
-            Route::get('crop-provider-banner/{id}/{width}x{height}', 'MediaController@cropProviderBanner');
-            Route::get('crop-catalogue-image/{id}/{width}x{height}', 'MediaController@cropCatalogueImage');
-
-            Route::get('resize-profile-image/{id}/{width}x{height}', 'MediaController@resizeProfileImage');
-            Route::get('resize-provider-banner/{id}/{width}x{height}', 'MediaController@resizeProviderBanner');
-            Route::get('resize-catalogue-image/{id}/{width}x{height}', 'MediaController@resizeCatalogueImage');
     });
+
+        Route::get('get-profile-image/{id}', 'MediaController@getProfileImage');
+        Route::get('get-provider-banner/{id}', 'MediaController@getProviderBanner');
+        Route::get('get-catalogue-image/{id}', 'MediaController@getCatalogueImage');
+
+        Route::get('thumb-profile-image/{id}/{size}', 'MediaController@thumbProfileImage');
+        Route::get('thumb-provider-banner/{id}/{size}', 'MediaController@thumbProviderBanner');
+        Route::get('thumb-catalogue-image/{id}/{size}', 'MediaController@thumbCatalogueImage');
+
+        Route::get('crop-profile-image/{id}/{width}x{height}', 'MediaController@cropProfileImage');
+        Route::get('crop-provider-banner/{id}/{width}x{height}', 'MediaController@cropProviderBanner');
+        Route::get('crop-catalogue-image/{id}/{width}x{height}', 'MediaController@cropCatalogueImage');
+
+        Route::get('resize-profile-image/{id}/{width}x{height}', 'MediaController@resizeProfileImage');
+        Route::get('resize-provider-banner/{id}/{width}x{height}', 'MediaController@resizeProviderBanner');
+        Route::get('resize-catalogue-image/{id}/{width}x{height}', 'MediaController@resizeCatalogueImage');
 });
