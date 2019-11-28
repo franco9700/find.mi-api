@@ -43,16 +43,6 @@ class DatabaseSeeder extends Seeder
             'title' => 'Salud',
         ]);
 
-        ServicesSubCatalogue::create([
-            'services_catalogue_id' => 1,
-            'title' => 'Alabañileria',
-        ]);
-
-        ServicesSubCatalogue::create([
-            'services_catalogue_id' => 1,
-            'title' => 'Joteria',
-        ]);
-
         JobsStatus::create([
             'title' => 'Terminado',
         ]);
@@ -75,12 +65,12 @@ class DatabaseSeeder extends Seeder
 
         ProvidersService::create([
             'user_id' => 1,
-            'services_sub_catalogue_id' => 1,
+            'services_catalogue_id' => 1,
         ]);
 
         ProvidersService::create([
             'user_id' => 1,
-            'services_sub_catalogue_id' => 2,
+            'services_catalogue_id' => 2,
         ]);
 
         Job::create([

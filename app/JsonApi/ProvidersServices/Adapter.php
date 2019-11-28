@@ -48,7 +48,7 @@ class Adapter extends AbstractAdapter
         return $this->hasOne();
     }
 
-    public function servicesSubCatalogue(){
+    public function servicesCatalogue(){
         return $this->hasOne();
     }
 

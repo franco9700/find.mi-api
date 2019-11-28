@@ -15,8 +15,8 @@ class ProvidersService extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function servicesSubCatalogue(){
-    	return $this->belongsTo('App\ServicesSubCatalogue');
+    public function servicesCatalogue(){
+    	return $this->belongsTo('App\ServicesCatalogue');
     }
 
     public function jobs(){
