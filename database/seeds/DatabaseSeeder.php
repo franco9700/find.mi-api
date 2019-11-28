@@ -31,6 +31,14 @@ class DatabaseSeeder extends Seeder
             'description' => '10 years of experience'
         ]);
 
+        UsersProvider::create([
+            'user_id' => 2,
+            'rfc' => 'me gusta la caca 123',
+            'provider_banner' => null,
+            'quotation' => null,
+            'description' => '20 years of experience'
+        ]);
+
         ServicesCatalogue::create([
             'title' => 'Construcción',
         ]);
@@ -70,6 +78,11 @@ class DatabaseSeeder extends Seeder
 
         ProvidersService::create([
             'user_id' => 1,
+            'services_catalogue_id' => 2,
+        ]);
+
+        ProvidersService::create([
+            'user_id' => 2,
             'services_catalogue_id' => 2,
         ]);
 
