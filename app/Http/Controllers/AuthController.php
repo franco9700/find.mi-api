@@ -44,9 +44,9 @@ class AuthController extends Controller
             'role' => $request->role
          ]);
 
-        $token = auth()->login($user);
+        $token = auth()->claims(['role' => $user->role])->login($user);
 
-        return response('Registro exitoso', 200);
+        return $this->respondWithToken($token);
     }
 
     /**
