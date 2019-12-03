@@ -44,8 +44,8 @@ class Validators extends AbstractValidators
             'user_id' => 'required|exists:users,id',
             'rfc' => 'required|string',
             'provider_banner' => 'string|nullable',
-            'quotation' => 'numeric|nullable',
-            'description' => 'string|nullable',
+            'quotation' => 'filled|numeric|nullable',
+            'description' => 'filled|string|nullable',
         ];
     }
 
