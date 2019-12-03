@@ -44,5 +44,16 @@ class UsersSeeder extends Seeder
             'password' => 'luis123',
             'gender' => 'm',
         ]);
+
+        User::create([
+            'firstname' => 'Jesus',
+            'lastname' => 'Martinez',
+            'birthdate' => '1999-06-15',
+            'address' => 'Calle X Avenida Cisaro',
+            'phone' => '64549871',
+            'email' => 'jesus@gmail.com',
+            'password' => 'jesus123',
+            'gender' => 'm',
+        ]);
     }
 }

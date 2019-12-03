@@ -22,7 +22,7 @@ class CreateJobsTable extends Migration
             $table->unsignedBigInteger('providers_service_id');
             $table->foreign('providers_service_id')->references('id')->on('providers_services')->onDelete('cascade');
             $table->string('short_description');
-            $table->string('detailed_description');
+            $table->text('detailed_description');
             $table->timestamps();
         });
     }
