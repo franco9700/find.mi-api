@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 
+use Neomerx\JsonApi\Exceptions\JsonApiException;
+use CloudCreativity\LaravelJsonApi\Document\Error;
+
 class AuthController extends Controller
 {
     /**
@@ -29,7 +32,12 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response($validator->errors(), 422);
+            $errors = $validator->errors();
+
+            $json_errors = $this->buildErrorJson($errors);
+
+           return response()->json($json_errors, 422);
+
         }
 
         $user = User::create([
@@ -116,5 +124,13 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60,
             'role' => $payload->get('role')
         ]);
+    }
+
+    public function buildErrorJson($errors){
+        $json_errors = [
+            "errors" => [$errors]
+        ];
+
+        return $json_errors;
     }
 }
