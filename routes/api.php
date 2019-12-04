@@ -51,6 +51,7 @@ Route::group(['middleware' => 'api'], function() {
         //Services catalogues routes
         $api->resource('services-catalogues')->relationships(function ($relations) {
             $relations->hasMany('providers-services');
+            $relations->hasMany('users');
         });
 
         /*Services subcatalogues routes
