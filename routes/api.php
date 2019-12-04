@@ -30,7 +30,7 @@ Route::group([
     });
 });
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'api'], function() {
     JsonApi::register('default')->routes(function ($api) {
 
     	//Users routes
@@ -98,7 +98,7 @@ Route::group([
 ], function () {
 
     Route::group([
-        'middleware' => 'auth:api'
+        'middleware' => 'api'
 
     ], function (){
         Route::post('upload-profile-image', 'MediaController@uploadProfileImage');
