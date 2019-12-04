@@ -122,6 +122,11 @@ class DatabaseSeeder extends Seeder
             'services_catalogue_id' => 2,
         ]);
 
+        ProvidersService::create([
+            'user_id' => 2,
+            'services_catalogue_id' => 3,
+        ]);
+
         Job::create([
             'user_id' => 2,
             'jobs_status_id' => 1,

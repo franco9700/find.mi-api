@@ -49,4 +49,9 @@ class Adapter extends AbstractAdapter
         return $this->hasMany();
     }
 
+    public function users(){
+
+        return $this->hasManyThrough();
+    }
+
 }

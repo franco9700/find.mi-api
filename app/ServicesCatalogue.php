@@ -23,4 +23,15 @@ class ServicesCatalogue extends Model
 
     	return $this->hasMany('App\ProvidersService');
     }
+
+    public function users(){
+        return $this->hasManyThrough(
+            'App\User',
+            'App\ProvidersService',
+            'services_catalogue_id',
+            'id',
+            'id',
+            'user_id'
+        );
+    }
 }
